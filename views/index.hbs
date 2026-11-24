@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{name}} - CV & Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --terminal-green: #38bdf8;
+            --text-color: #e2e8f0;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --card-bg: #1e293b;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Courier New', Courier, monospace;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .header {
+            border-bottom: 2px dashed var(--terminal-green);
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        h1 { color: var(--terminal-green); margin: 0 0 5px 0; }
+        .title { font-size: 1.1rem; color: var(--text-muted); }
+        .tagline {
+            font-style: italic;
+            color: var(--terminal-green);
+            background: rgba(56, 189, 248, 0.08);
+            border-left: 3px solid var(--terminal-green);
+            padding: 10px 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .status { color: #4ade80; font-weight: bold; margin-top: 10px; }
+        .section {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        h2 { color: var(--terminal-green); font-size: 1.2rem; margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 8px; }
+        .job-item, .project-item { margin-bottom: 20px; }
+        .job-item:last-child, .project-item:last-child { margin-bottom: 0; }
+        .job-item strong, .project-item strong { color: var(--terminal-green); }
+        .easter-egg {
+            border: 1px dashed var(--terminal-green);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            background: rgba(56, 189, 248, 0.05);
+        }
+        .btn {
+            background: var(--terminal-green);
+            color: var(--bg-color);
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .btn:hover { opacity: 0.9; }
+        .footer {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 40px;
+        }
+        .contact-links a { color: var(--terminal-green); text-decoration: none; margin-right: 15px; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>{{name}}</h1>
+        <div class="title">{{title}} | 📍 {{location}}</div>
+        
+        <div class="tagline">"{{tagline}}"</div>
+
+        <div class="contact-links" style="margin-top: 10px;">
+            <a href="mailto:{{email}}">✉️ {{email}}</a>
+            {{#if phone}}<a href="tel:{{phone}}">📞 {{phone}}</a>{{/if}}
+            <a href="{{linkedin}}" target="_blank">💼 LinkedIn</a>
+            <a href="{{github}}" target="_blank">💻 GitHub</a>
+        </div>
+        <div class="status">{{status}}</div>
+    </div>
+
+    <div class="section">
+        <h2>// ABOUT ME</h2>
+        <p>{{bio}}</p>
+    </div>
+
+    <div class="section">
+        <h2>// PROFESSIONAL EXPERIENCE</h2>
+        {{#each experience}}
+            <div class="job-item">
+                <strong>{{this.role}}</strong> @ {{this.company}} <span style="color: var(--text-muted); float: right;">{{this.period}}</span>
+                <ul>
+                    {{#each this.highlights}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        {{/each}}
+    </div>
+
+    <div class="section">
+        <h2>// CORE SKILLS</h2>
+        <ul>
+            {{#each skills}}
+                {{#each this}}
+                    <li><strong>{{@../key}}:</strong> {{this}}</li>
+                {{/each}}
+            {{/each}}
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>// HIGHLIGHTED PROJECTS</h2>
+        {{#each projects}}
+            <div class="project-item">
+                <strong>{{this.name}}</strong><br>
+                <span>{{this.description}}</span><br>
+                <small style="color: var(--text-muted);">Stack: {{this.tech}}</small>
+            </div>
+        {{/each}}
+    </div>
+
+    <div class="easter-egg">
+        <p style="color: var(--terminal-green); margin-bottom: 15px;">
+            🚀 <strong>Terminal / API Easter Egg Found!</strong><br>
+            {{easterEgg}}
+        </p>
+        <a href="{{linkedin}}" target="_blank" class="btn">
+           💼 Send Message on LinkedIn
+        </a>
+    </div>
+
+    <div class="footer">
+        📊 Server Metrics: <a href="/cv/metrics" target="_blank" style="color: var(--terminal-green); text-decoration: none;">[ Prometheus Metrics ]</a> | 
+        API Endpoint: <a href="/cv" target="_blank" style="color: var(--terminal-green); text-decoration: none;">[ JSON CV ]</a> | 
+        CLI View: <a href="/cv/terminal" target="_blank" style="color: var(--terminal-green); text-decoration: none;">[ Terminal Output ]</a>
+    </div>
+
+</body>
+</html>

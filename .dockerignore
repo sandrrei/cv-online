@@ -1,0 +1,11 @@
+node_modules
+dist
+npm-debug.log
+Dockerfile
+.dockerignore
+.git
+.env
+README.md
+# personal data and runtime state: mounted as a volume, never baked into the image
+data/cv.json
+data/metrics.json

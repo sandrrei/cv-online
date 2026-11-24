@@ -1,0 +1,44 @@
+{
+  "name": "Jane Example",
+  "title": "Site Reliability Engineer",
+  "location": "Lisbon, Portugal",
+  "phone": "+1 555 0100",
+  "email": "jane@example.com",
+  "linkedin": "https://www.linkedin.com/in/jane-example",
+  "github": "https://github.com/octocat",
+  "tagline": "Automate the boring parts, observe everything else.",
+  "status": "🟢 Systems operational — Open for SRE / Platform Engineering roles",
+  "bio": "Example profile: replace this file with your own CV (data/cv.json). SRE with experience running Kubernetes in production, building CI/CD pipelines and improving incident response.",
+  "skills": {
+    "Cloud & DevOps": ["Kubernetes", "Terraform", "Docker", "GitHub Actions"],
+    "Observability": ["Prometheus", "Grafana", "Loki"],
+    "Languages": ["Go", "Python", "Bash"]
+  },
+  "experience": [
+    {
+      "period": "2021 - Present",
+      "role": "Site Reliability Engineer",
+      "company": "Example Corp (Lisbon, Portugal)",
+      "highlights": [
+        "Ran Kubernetes clusters across three regions.",
+        "Cut incident response time with better alerting and runbooks."
+      ]
+    },
+    {
+      "period": "2018 - 2021",
+      "role": "Systems Administrator",
+      "company": "Sample Systems Ltd.",
+      "highlights": [
+        "Automated server provisioning with Ansible."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Cloud-Native CV Portfolio",
+      "description": "This service: a NestJS microservice serving the CV as a web page, a JSON API, terminal text and Prometheus metrics.",
+      "tech": "NestJS, Handlebars, Docker, Prometheus"
+    }
+  ],
+  "easterEgg": "🚀 You found the easter egg! Replace this text in your cv.json."
+}

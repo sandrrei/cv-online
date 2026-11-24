@@ -1,0 +1,13 @@
+services:
+  cv-api:
+    build: .
+    container_name: curriculo-nest-api
+    restart: unless-stopped
+    ports:
+      - "3006:3000" # host port 3006 -> container port 3000
+    environment:
+      - PORT=3000
+    volumes:
+      - ./data:/usr/src/app/data
+    # networks:
+    #   - proxy-net # Descomenta se usares uma rede externa para o teu Nginx Proxy Manager
